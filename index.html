@@ -304,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/24/ycsb压测hbase集群/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/22/hadoop集群搭建总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Woophee">
@@ -323,8 +323,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/24/ycsb压测hbase集群/" itemprop="url">
-                  YCSB压测HBASE集群
+                <a class="post-title-link" href="/2018/10/22/hadoop集群搭建总结/" itemprop="url">
+                  hadoop集群搭建总结
                 </a>
               
             
@@ -350,12 +350,24 @@
                 
               
 
-              <time title="创建时间：2018-09-24 00:00:00 / 修改时间：15:27:18" itemprop="dateCreated datePublished" datetime="2018-09-24T00:00:00+08:00">2018-09-24</time>
+              <time title="创建时间：2018-10-22 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-22T00:00:00+08:00">2018-10-22</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-23 00:07:55" itemprop="dateModified" datetime="2018-10-23T00:07:55+08:00">2018-10-23</time>
               
             
           </span>
@@ -372,14 +384,206 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Big-data/" itemprop="url" rel="index"><span itemprop="name">Big data</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hbase/" itemprop="url" rel="index"><span itemprop="name">Hbase</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Big-data/存储/" itemprop="url" rel="index"><span itemprop="name">存储</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hbase/Hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Hadoop、Hbase-HA启动"><a href="#Hadoop、Hbase-HA启动" class="headerlink" title="Hadoop、Hbase HA启动"></a>Hadoop、Hbase HA启动</h2><pre><code>1、创建命名空间（仅第一次启动需要）
+[hadoop@hadoop1 hadoop] ./bin/hdfs zkfx –formatZK
+2、在对应节点启动journalnode
+[hadoop@hadoop1 hadoop] hadoop-daemon.sh start journalnode
+[hadoop@hadoop2 hadoop] hadoop-daemon.sh start journalnode
+3、格式化主NameNode节点（仅第一次启动需要）
+[hadoop@hadoop1 hadoop] hdfs namenode –format
+4、启动主NameNode节点
+[hadoop@hadoop1 hadoop] hadoop-daemon.sh start namenode
+5、格式化备NameNode节点（仅第一次启动需要）
+[hadoop@hadoop2 hadoop] hdfs namenode –bootstrapStandby
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/22/hadoop集群搭建总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/24/ycsb压测hbase集群/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Woophee">
+      <meta itemprop="description" content="Our Home Our Woophee">
+      <meta itemprop="image" content="/photo/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Woophee">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/24/ycsb压测hbase集群/" itemprop="url">
+                  YCSB压测Hbase集群
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-24 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-24T00:00:00+08:00">2018-09-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-23 00:04:31" itemprop="dateModified" datetime="2018-10-23T00:04:31+08:00">2018-10-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hbase/" itemprop="url" rel="index"><span itemprop="name">Hbase</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hbase/Hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a></span>
 
                 
                 
@@ -546,7 +750,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-24 15:27:36" itemprop="dateModified" datetime="2018-09-24T15:27:36+08:00">2018-09-24</time>
+                <time title="修改时间：2018-10-23 00:04:58" itemprop="dateModified" datetime="2018-10-23T00:04:58+08:00">2018-10-23</time>
               
             
           </span>
@@ -563,7 +767,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/常用操作/" itemprop="url" rel="index"><span itemprop="name">常用操作</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
 
                 
                 
@@ -867,7 +1071,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -900,8 +1104,6 @@
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
-                    
-                      
                     
                       
                     
