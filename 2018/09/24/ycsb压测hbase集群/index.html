@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="环境准备 安装包 1.3.0ycsb-hbase10-bingding-0.13.0-SNAPSHOT.tar.gz Argparse-1.4.0.tar.gz Nomon16e-mpginc.tar.gz Setuptools-39.2.0.zip   YCSB测试机集群部署 部署脚本所在机器需要设置对所有测试机的ssh免密登陆 执行部署脚本">
+  <meta name="description" content="YCSB压测HBASE集群环境准备1. 安装包     - 1.3.0ycsb-hbase10-bingding-0.13.0-SNAPSHOT.tar.gz     - Argparse-1.4.0.tar.gz     - Nomon16e-mpginc.tar.gz     - Setuptools-39.2.0.zip 2. YCSB测试机集群部署     - 部署脚本所在机器需要设置对所">
 <meta name="keywords" content="压测">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YCSB压测Hbase集群">
 <meta property="og:url" content="http://yoursite.com/2018/09/24/ycsb压测hbase集群/index.html">
 <meta property="og:site_name" content="Woophee">
-<meta property="og:description" content="环境准备 安装包 1.3.0ycsb-hbase10-bingding-0.13.0-SNAPSHOT.tar.gz Argparse-1.4.0.tar.gz Nomon16e-mpginc.tar.gz Setuptools-39.2.0.zip   YCSB测试机集群部署 部署脚本所在机器需要设置对所有测试机的ssh免密登陆 执行部署脚本">
+<meta property="og:description" content="YCSB压测HBASE集群环境准备1. 安装包     - 1.3.0ycsb-hbase10-bingding-0.13.0-SNAPSHOT.tar.gz     - Argparse-1.4.0.tar.gz     - Nomon16e-mpginc.tar.gz     - Setuptools-39.2.0.zip 2. YCSB测试机集群部署     - 部署脚本所在机器需要设置对所">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-22T16:04:31.472Z">
+<meta property="og:updated_time" content="2018-10-23T14:17:06.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YCSB压测Hbase集群">
-<meta name="twitter:description" content="环境准备 安装包 1.3.0ycsb-hbase10-bingding-0.13.0-SNAPSHOT.tar.gz Argparse-1.4.0.tar.gz Nomon16e-mpginc.tar.gz Setuptools-39.2.0.zip   YCSB测试机集群部署 部署脚本所在机器需要设置对所有测试机的ssh免密登陆 执行部署脚本">
+<meta name="twitter:description" content="YCSB压测HBASE集群环境准备1. 安装包     - 1.3.0ycsb-hbase10-bingding-0.13.0-SNAPSHOT.tar.gz     - Argparse-1.4.0.tar.gz     - Nomon16e-mpginc.tar.gz     - Setuptools-39.2.0.zip 2. YCSB测试机集群部署     - 部署脚本所在机器需要设置对所">
 
 
 
@@ -364,7 +364,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-23 00:04:31" itemprop="dateModified" datetime="2018-10-23T00:04:31+08:00">2018-10-23</time>
+                <time title="修改时间：2018-10-23 22:17:06" itemprop="dateModified" datetime="2018-10-23T22:17:06+08:00">2018-10-23</time>
               
             
           </span>
@@ -432,66 +432,41 @@
       
 
       
-        <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ol>
-<li>安装包<ul>
-<li>1.3.0ycsb-hbase10-bingding-0.13.0-SNAPSHOT.tar.gz</li>
-<li>Argparse-1.4.0.tar.gz</li>
-<li>Nomon16e-mpginc.tar.gz</li>
-<li>Setuptools-39.2.0.zip</li>
-</ul>
-</li>
-<li>YCSB测试机集群部署<ul>
-<li>部署脚本所在机器需要设置对所有测试机的ssh免密登陆</li>
-<li>执行部署脚本<a id="more"></a>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="测试步骤"><a href="#测试步骤" class="headerlink" title="测试步骤"></a>测试步骤</h2><ol>
-<li>新建测试表<ul>
-<li>根据生产环境hbase表来进行相同属性表的创建，采用的方案是一台测试机创建一张对应的表</li>
-</ul>
-</li>
-<li>加载测试数据<ul>
-<li>根据workloadfile负载文件配置，加载数据即写入hbase表中，来初始化测试表。</li>
-<li>运行示例： ./preloading.sh workloadfile 400</li>
-</ul>
-</li>
-<li>服务器性能监控<ul>
-<li>在正式测试前对所有机器开启nmon监控进程</li>
-<li>运行示例： ./start-nmon.sh interval collect_times</li>
-</ul>
-</li>
-<li>执行负载测试<ul>
-<li>测试过程还需观察Hbase Master页面中Region server 统计数据，观察ops t和内存使用情况</li>
-</ul>
-</li>
-<li>停止nmon进程并收集nmon监控数据<ul>
-<li>并清除nmon相关文件</li>
-</ul>
-</li>
-<li><p>收集ycsb的测试结果</p>
-<ul>
-<li>运行脚本，汇总和收集每台测试机的测试结果，主要关注以下几个指标<ul>
-<li>吞吐量</li>
-<li>读延迟</li>
-<li>写延迟</li>
-<li>读写成功率 </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>结合测试结果和监控数据找出性能瓶颈 </p>
-<ul>
-<li>通过nmon文件分析工具nmon_analyser v51_2.xlsm,检查所有主要服务器的磁盘IO,NET,CPU,Memory,Swapping等关键性能数据，分析Full GC频率，磁盘Flush频率<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2></li>
-</ul>
-</li>
-<li>压测的目的是要测试出hbase集群的性能瓶颈，在高cpu使用率、高内存使用率、高磁盘IO的情况下，hbase的吞吐量能达到多少</li>
-<li>在虚拟机集群上搭建hbase集群，因为虚拟机是共享资源的，很有可能因为网络或者资源被侵占的情况下，导致集群挂掉或者出问题，所以压测是很有必要的</li>
-<li>ycsb是个测试工具，不一定能产生和业务类型相符合的数据，如需要测试与业务符合的某些场景，可以自己写测试程序来进行压测</li>
-<li>以上每个步骤都有压测脚本，暂未写出来</li>
-</ol>
+        <h1 id="YCSB压测HBASE集群"><a href="#YCSB压测HBASE集群" class="headerlink" title="YCSB压测HBASE集群"></a>YCSB压测HBASE集群</h1><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><pre><code>1. 安装包
+    - 1.3.0ycsb-hbase10-bingding-0.13.0-SNAPSHOT.tar.gz
+    - Argparse-1.4.0.tar.gz
+    - Nomon16e-mpginc.tar.gz
+    - Setuptools-39.2.0.zip
+2. YCSB测试机集群部署
+    - 部署脚本所在机器需要设置对所有测试机的ssh免密登陆
+    - 执行部署脚本
+</code></pre><a id="more"></a>
+<h2 id="测试步骤"><a href="#测试步骤" class="headerlink" title="测试步骤"></a>测试步骤</h2><pre><code>1. 新建测试表
+    - 根据生产环境hbase表来进行相同属性表的创建，采用的方案是一台测试机创建一张对应的表
+2. 加载测试数据
+    - 根据workloadfile负载文件配置，加载数据即写入hbase表中，来初始化测试表。
+    - 运行示例： ./preloading.sh workloadfile 400
+3. 服务器性能监控
+    - 在正式测试前对所有机器开启nmon监控进程
+    - 运行示例： ./start-nmon.sh interval collect_times
+4. 执行负载测试
+    - 测试过程还需观察Hbase Master页面中Region server 统计数据，观察ops t和内存使用情况
+5. 停止nmon进程并收集nmon监控数据
+    - 并清除nmon相关文件
+6. 收集ycsb的测试结果
+    - 运行脚本，汇总和收集每台测试机的测试结果，主要关注以下几个指标
+        - 吞吐量
+        - 读延迟
+        - 写延迟
+        - 读写成功率 
 
+7. 结合测试结果和监控数据找出性能瓶颈 
+    - 通过nmon文件分析工具nmon_analyser v51_2.xlsm,检查所有主要服务器的磁盘IO,NET,CPU,Memory,Swapping等关键性能数据，分析Full GC频率，磁盘Flush频率
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><pre><code>1. 压测的目的是要测试出hbase集群的性能瓶颈，在高cpu使用率、高内存使用率、高磁盘IO的情况下，hbase的吞吐量能达到多少
+2. 在虚拟机集群上搭建hbase集群，因为虚拟机是共享资源的，很有可能因为网络或者资源被侵占的情况下，导致集群挂掉或者出问题，所以压测是很有必要的
+3. ycsb是个测试工具，不一定能产生和业务类型相符合的数据，如需要测试与业务符合的某些场景，可以自己写测试程序来进行压测
+4. 以上每个步骤都有压测脚本，暂未写出来
+</code></pre>
       
     </div>
 
@@ -691,7 +666,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试步骤"><span class="nav-number">2.</span> <span class="nav-text">测试步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#YCSB压测HBASE集群"><span class="nav-number">1.</span> <span class="nav-text">YCSB压测HBASE集群</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">1.1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试步骤"><span class="nav-number">1.2.</span> <span class="nav-text">测试步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
             
 
           </div>
